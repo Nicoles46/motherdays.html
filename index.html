@@ -14,536 +14,6 @@
             box-sizing: border-box;
         }
 
-    body {
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fbc2eb, #a18cd1);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-
-    align-items: flex-start;
-
-    overflow-x: hidden;
-    overflow-y: auto;
-
-    position: relative;
-
-    padding: 30px 15px;
-}
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Arka plan partikel efektleri */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .floating-item {
-            position: absolute;
-            opacity: 0;
-            animation: floatUp linear infinite;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(110vh) scale(0.5) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            90% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.5) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .container {
-            text-align: center;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            padding: 50px 40px;
-            border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-            max-width: 650px;
-            animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        @keyframes slideUpFade {
-            from {
-                opacity: 0;
-                transform: translateY(80px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .decoration {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            display: inline-block;
-            animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(0 5px 15px rgba(255,105,180,0.4));
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
-        }
-
-        .title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 5rem;
-            color: #d81b60;
-            margin-bottom: 5px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            line-height: 1.2;
-            background: linear-gradient(to right, #d81b60, #ff4081, #d81b60);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: shine 3s linear infinite;
-        }
-
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        .subtitle {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            color: #ad1457;
-            margin-bottom: 35px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-        }
-
-        .message {
-            font-size: 1.05rem;
-            color: #4a4a4a;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-style: italic;
-            position: relative;
-            padding: 0 15px;
-        }
-
-        .special-text {
-            font-size: 1.2rem;
-            color: #c2185b;
-            font-weight: 600;
-            margin: 30px 0;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .special-text::before, .special-text::after {
-            content: "✿";
-            color: #ff4081;
-            margin: 0 15px;
-            display: inline-block;
-            animation: spin 6s linear infinite;
-        }
-
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
-
-        .button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, #ff4081 0%, #d81b60 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1rem;
-            margin-top: 20px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(216, 27, 96, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .button::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255,255,255,0.2);
-            transform: rotate(45deg);
-            transition: all 0.3s ease;
-            opacity: 0;
-        }
-
-        .button:hover::after {
-            opacity: 1;
-            transform: rotate(45deg) translate(50%, 50%);
-        }
-
-        .button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(216, 27, 96, 0.4);
-        }
-
-        .hearts-bottom {
-            margin-top: 20px;
-            font-size: 1.5rem;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .hearts-bottom span {
-            display: inline-block;
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        .hearts-bottom span:nth-child(2) {
-            animation-delay: 0.2s;
-            font-size: 2.2rem;
-            transform-origin: center;
-        }
-        
-        .hearts-bottom span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            14% { transform: scale(1.3); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.3); }
-            70% { transform: scale(1); }
-        }
-
-        /* Confetti specific styles */
-        .falling-petal {
-            position: fixed;
-            z-index: 1000;
-            pointer-events: none;
-            animation: fallDrop linear forwards;
-        }
-
-        @keyframes fallDrop {
-            0% {
-                transform: translateY(-10vh) rotate(0deg) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) rotate(720deg) scale(0.5);
-                opacity: 0;
-            }
-        }
-
-        /* Mobil Uyumluluğu */
-        @media screen and (max-width: 768px) {
-            .container {
-                max-width: 95vw;
-                padding: 35px 25px;
-                margin: 20px;
-            }
-
-            .title {
-                font-size: 3rem;
-                margin-bottom: 5px;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-                letter-spacing: 2px;
-                margin-bottom: 25px;
-            }
-
-            .decoration {
-                font-size: 2.5rem;
-                margin-bottom: 5px;
-            }
-
-            .message {
-                font-size: 0.95rem;
-                line-height: 1.5;
-                margin-bottom: 15px;
-                padding: 0 10px;
-            }
-
-            .special-text {
-                font-size: 1rem;
-                margin: 20px 0;
-            }
-
-            .special-text::before, .special-text::after {
-                margin: 0 8px;
-            }
-
-            .button {
-                padding: 12px 30px;
-                font-size: 0.95rem;
-                margin-top: 15px;
-            }
-
-            .hearts-bottom {
-                margin-top: 15px;
-                font-size: 1.2rem;
-                gap: 10px;
-            }
-
-            .hearts-bottom span:nth-child(2) {
-                font-size: 1.6rem;
-            }
-
-            .hearts-bottom span {
-                animation: heartbeat 1.5s ease-in-out infinite;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .container {
-                padding: 25px 20px;
-            }
-
-            .title {
-                font-size: 2.2rem;
-            }
-
-            .subtitle {
-                font-size: 0.9rem;
-                letter-spacing: 1px;
-            }
-
-            .decoration {
-                font-size: 2rem;
-            }
-
-            .message {
-                font-size: 0.9rem;
-                line-height: 1.4;
-                padding: 0 5px;
-            }
-
-            .special-text {
-                font-size: 0.95rem;
-            }
-
-            .button {
-                padding: 10px 25px;
-                font-size: 0.9rem;
-            }
-
-            .hearts-bottom {
-                font-size: 1rem;
-                gap: 8px;
-            }
-
-            .hearts-bottom span:nth-child(2) {
-                font-size: 1.3rem;
-            }
-        }
-
-        /* Footer Stili */
-        .footer {
-            position: fixed;
-            bottom: 10px;
-            right: 15px;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-style: italic;
-            z-index: 5;
-            transition: color 0.3s ease;
-        }
-
-        .footer:hover {
-            color: rgba(255, 255, 255, 1);
-        }
-
-        @media screen and (max-width: 768px) {
-            .footer {
-                font-size: 0.7rem;
-                bottom: 8px;
-                right: 10px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .footer {
-                font-size: 0.65rem;
-                bottom: 5px;
-                right: 8px;
-            }
-        }
-        .footer{
-            color: saddlebrown;
-            font-size: larger;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-    </style>
-</head>
-<body>
-    <div class="particles" id="particlesContainer"></div>
-
-    <div class="container">
-        <div class="decoration">💐</div>
-        
-        <h1 class="title">Anneler Günü</h1>
-        
-        <div class="subtitle">Kutlu Olsun</div>
-
-        <p class="message">
-            "Hayatta sahip olduğumuz en kıymetli hazine, annem'dir. 
-            Her gün bizim için fedakarlık yapan, sevgisini en samimi 
-            şekilde gösteren annem için bu özel günü kutlamak isterim."
-        </p>
-
-        <div class="special-text">Tüm Annelere Saygı ve Sevgi</div>
-
-        <p class="message">
-            Annelerimizin verdiği emek, sabır ve sevgisini hiçbir şey 
-            karşılayamaz. Bugün ve her gün onları seveceğimizi, 
-            saygı duyacağımızı ve onlara teşekkür edeceğimizi hatırlatır.
-        </p>
-
-        <button class="button" onclick="celebrateWithSound(this)">🎉 Sevgiyle Kutla! 🎉</button>
-
-        <div class="hearts-bottom">
-            <span>💖</span>
-            <span>💝</span>
-            <span>💖</span>
-        </div>
-    </div>
-
-    <div class="footer">Made By M. Furkan Bolat</div>
-
-    <script>
-        // Uçan objeler oluştur
-        function createFloatingItems() {
-            const container = document.getElementById('particlesContainer');
-            const items = ['🌸', '🌺', '🌷', '✨', '💖', '🤍'];
-            
-            // Başlangıçta ekranı doldurmak için biraz eleman ekleyelim
-            for (let i = 0; i < 25; i++) {
-                createItem(container, items, true);
-            }
-            
-            // Belirli aralıklarla yeni elemanlar ekleyelim
-            setInterval(() => {
-                createItem(container, items, false);
-            }, 800);
-        }
-
-        function createItem(container, items, isInitial) {
-            const item = document.createElement('div');
-            item.classList.add('floating-item');
-            item.textContent = items[Math.floor(Math.random() * items.length)];
-            item.style.left = Math.random() * 100 + '%';
-            
-            const duration = 10 + Math.random() * 15;
-            item.style.animationDuration = duration + 's';
-            
-            item.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
-            
-            // Başlangıç için rastgele gecikmeler veya ilerlemeler (animasyonu yaymak için)
-            if(isInitial) {
-                item.style.animationDelay = '-' + (Math.random() * duration) + 's';
-            }
-
-            container.appendChild(item);
-
-            item.addEventListener('animationend', () => {
-                item.remove();
-            });
-        }
-
-        // Kutlama efekti
-        function celebrateWithSound(button) {
-            const originalText = button.innerHTML;
-            button.innerHTML = '✨ Mutlu Anneler Günü! ✨';
-            button.style.transform = 'scale(1.1)';
-            button.style.background = 'linear-gradient(135deg, #f50057 0%, #c51162 100%)';
-            
-            // Konfeti / Yaprak efekti
-            const petals = ['🌸', '🌺', '💖', '✨', '🎊'];
-            
-            for (let i = 0; i < 60; i++) {
-                setTimeout(() => {
-                    const petal = document.createElement('div');
-                    petal.classList.add('falling-petal');
-                    petal.textContent = petals[Math.floor(Math.random() * petals.length)];
-                    petal.style.left = Math.random() * 100 + 'vw';
-                    petal.style.fontSize = (1 + Math.random() * 1.5) + 'rem';
-                    
-                    // Rastgele düşüş hızı
-                    const duration = 3 + Math.random() * 4;
-                    petal.style.animationDuration = duration + 's';
-                    
-                    // Rastgele yatay sallanma için
-                    const randomX = (Math.random() - 0.5) * 200;
-                    petal.style.transform = `translateX(${randomX}px)`;
-
-                    document.body.appendChild(petal);
-                    
-                    setTimeout(() => petal.remove(), duration * 1000);
-                }, i * 40);
-            }
-
-            setTimeout(() => {
-                button.innerHTML = originalText;
-                button.style.transform = '';
-                button.style.background = '';
-            }, 4000);
-        }
-
-        // Sayfa yüklendiğinde başlat
-        window.addEventListener('load', createFloatingItems);
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anneler Günü - Özel Gün</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fbc2eb, #a18cd1);
@@ -610,8 +80,9 @@
             max-width: 650px;
             animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
-            max-height: 90vh;
+            max-height: 85vh;
             overflow-y: auto;
+            margin-bottom: 100px;
         }
 
         @keyframes slideUpFade {
@@ -792,54 +263,65 @@
 
         /* Mobil Uyumluluğu */
         @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
             .container {
-                width: 100%
-                padding: 35px 25px;
-                margin: 20px;
+                max-width: 100%;
+                width: 100%;
+                padding: 30px 20px;
+                margin-bottom: 120px;
+                border-radius: 25px;
+                max-height: 90vh;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             }
 
             .title {
-                font-size: 3rem;
-                margin-bottom: 5px;
+                font-size: 2.8rem;
+                margin-bottom: 8px;
             }
 
             .subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 letter-spacing: 2px;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
             }
 
             .decoration {
-                font-size: 2.5rem;
-                margin-bottom: 5px;
+                font-size: 2.2rem;
+                margin-bottom: 8px;
             }
 
             .message {
-                font-size: 0.95rem;
-                line-height: 1.5;
+                font-size: 0.92rem;
+                line-height: 1.6;
                 margin-bottom: 15px;
-                padding: 0 10px;
+                padding: 0 8px;
+                color: #555;
             }
 
             .special-text {
-                font-size: 1rem;
+                font-size: 1.05rem;
                 margin: 20px 0;
             }
 
             .special-text::before, .special-text::after {
                 margin: 0 8px;
+                font-size: 1rem;
             }
 
             .button {
-                padding: 12px 30px;
-                font-size: 0.95rem;
+                padding: 12px 28px;
+                font-size: 0.92rem;
                 margin-top: 15px;
+                box-shadow: 0 8px 16px rgba(216, 27, 96, 0.25);
             }
 
             .hearts-bottom {
                 margin-top: 15px;
                 font-size: 1.2rem;
-                gap: 10px;
+                gap: 12px;
             }
 
             .hearts-bottom span:nth-child(2) {
@@ -852,45 +334,90 @@
         }
 
         @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
             .container {
-                padding: 25px 20px;
+                padding: 24px 18px;
+                margin-bottom: 140px;
+                border-radius: 20px;
+                max-height: 92vh;
             }
 
             .title {
                 font-size: 2.2rem;
+                margin-bottom: 6px;
+                line-height: 1.2;
             }
 
             .subtitle {
-                font-size: 0.9rem;
-                letter-spacing: 1px;
+                font-size: 0.88rem;
+                letter-spacing: 1.5px;
+                margin-bottom: 18px;
             }
 
             .decoration {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 6px;
             }
 
             .message {
-                font-size: 0.9rem;
-                line-height: 1.4;
-                padding: 0 5px;
+                font-size: 0.88rem;
+                line-height: 1.5;
+                padding: 0 6px;
+                margin-bottom: 12px;
+                color: #666;
             }
 
             .special-text {
-                font-size: 0.95rem;
+                font-size: 0.98rem;
+                margin: 18px 0;
             }
 
-            .button {
-                padding: 10px 25px;
+            .special-text::before, .special-text::after {
+                margin: 0 6px;
                 font-size: 0.9rem;
             }
 
+            .button {
+                padding: 11px 24px;
+                font-size: 0.88rem;
+                margin-top: 12px;
+                box-shadow: 0 6px 12px rgba(216, 27, 96, 0.2);
+            }
+
             .hearts-bottom {
+                margin-top: 12px;
                 font-size: 1rem;
-                gap: 8px;
+                gap: 10px;
             }
 
             .hearts-bottom span:nth-child(2) {
                 font-size: 1.3rem;
+            }
+        }
+
+        @media screen and (max-width: 360px) {
+            .container {
+                padding: 20px 16px;
+                margin-bottom: 140px;
+                border-radius: 18px;
+            }
+
+            .title {
+                font-size: 1.95rem;
+                margin-bottom: 5px;
+            }
+
+            .message {
+                font-size: 0.85rem;
+                line-height: 1.45;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 0.85rem;
             }
         }
 
@@ -904,10 +431,13 @@
             font-style: italic;
             z-index: 5;
             transition: color 0.3s ease;
+            color: saddlebrown;
+            font-size: 0.9rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
 
         .footer:hover {
-            color: rgba(255, 255, 255, 1);
+            color: rgba(139, 69, 19, 0.9);
         }
 
         @media screen and (max-width: 768px) {
@@ -924,11 +454,6 @@
                 bottom: 5px;
                 right: 8px;
             }
-        }
-        .footer{
-            color: saddlebrown;
-            font-size: larger;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
     </style>
 </head>
